@@ -30,6 +30,7 @@ export default function Banner() {
             <p className="text-gray-500">Interactions This Month</p>
         </div>
       </div>
+      <h2 className=" text-4xl font-bold text-start mt-3 container mx-auto">Your Friends</h2>
     </div>
     
   );

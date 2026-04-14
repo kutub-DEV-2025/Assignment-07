@@ -121,13 +121,13 @@ export default function FriendDetails() {
                 Maintain contact every {friend.goal} days
               </p>
 
-              <button className="text-indigo-600 text-sm">
+              <button className="bg-gray-200 text-black py-1 p-3 rounded-lg text-sm">
                 Edit
               </button>
             </div>
           </div>
 
-          {/* ✅ FIXED QUICK CHECK-IN */}
+          
           <div className="bg-white border rounded-xl p-5">
 
             <h2 className="font-semibold mb-3">
@@ -136,26 +136,26 @@ export default function FriendDetails() {
 
             <div className="flex gap-3">
 
-              <button
-                onClick={() => handleAction("Call")}
-                className="flex-1 bg-green-500 text-white py-2 rounded-lg"
-              >
-                Call
-              </button>
+           <button
+            onClick={() => handleAction("Call")}
+            className="flex-1 flex flex-col items-center justify-center gap-1 bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition">
+            <img src="/assets/call.png" className="w-6 h-6" />
+            <span className="text-sm text-gray-700">Call</span>
+            </button>
 
               <button
                 onClick={() => handleAction("Text")}
-                className="flex-1 bg-blue-500 text-white py-2 rounded-lg"
-              >
-                Text
-              </button>
+               className="flex-1 flex flex-col items-center justify-center gap-1 bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition">
+                <img src="/assets/text.png" className="w-6 h-6" />
+                <span className="text-sm text-gray-700">Text</span>
+                </button>
 
               <button
                 onClick={() => handleAction("Video")}
-                className="flex-1 bg-purple-500 text-white py-2 rounded-lg"
-              >
-                Video
-              </button>
+                className="flex-1 flex flex-col items-center justify-center gap-1 bg-gray-100 hover:bg-gray-200 py-3 rounded-lg transition">
+                 <img src="/assets/video.png" className="w-6 h-6" />
+                <span className="text-sm text-gray-700">Video</span>
+                </button>
 
             </div>
 
