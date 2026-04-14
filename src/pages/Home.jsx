@@ -1,33 +1,64 @@
+import { useEffect, useState } from "react";
 import friends from "../data/friends.json";
 import { useNavigate } from "react-router-dom";
 import Banner from "../components/Banner";
+import Loader from "../components/Loader";
 
 export default function Home() {
   const navigate = useNavigate();
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="bg-gray-50 min-h-screen py-10 px-6">
       <Banner />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto mt-8">
+
         <div className="grid gap-6
           grid-cols-1 
           sm:grid-cols-2 
           lg:grid-cols-3 
-          xl:grid-cols-4">
-        {friends.map((f) => (
-          <div
-            key={f.id}
-            onClick={() => navigate(`/friend/${f.id}`)}
-            className="p-4 shadow rounded cursor-pointer"
-          >
-            <img src={f.picture} className="w-14 rounded-full" />
-            <h2>{f.name}</h2>
-            <p>{f.days_since_contact} days ago</p>
-            <span>{f.status}</span>
-          </div>
-        ))}
-      </div>
+          xl:grid-cols-4"
+        >
+          {friends.map((f) => (
+            <div
+              key={f.id}
+              onClick={() => navigate(`/friend/${f.id}`)}
+              className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md transition cursor-pointer"
+            >
+              <img
+                src={f.picture}
+                className="w-14 h-14 rounded-full object-cover mb-3"
+              />
+
+              <h2 className="font-semibold text-gray-900">
+                {f.name}
+              </h2>
+
+              <p className="text-sm text-gray-500 mt-1">
+                {f.days_since_contact} days ago
+              </p>
+
+              <span className="text-xs mt-3 inline-block px-3 py-1 bg-gray-100 rounded-full">
+                {f.status}
+              </span>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   );

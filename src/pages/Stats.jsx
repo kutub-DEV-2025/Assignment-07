@@ -4,7 +4,7 @@ import { useTimeline } from "../context/TimelineContext";
 export default function Stats() {
   const { timeline } = useTimeline();
 
-  // 📊 count data
+  
   const call = timeline.filter((t) => t.type === "Call").length;
   const text = timeline.filter((t) => t.type === "Text").length;
   const video = timeline.filter((t) => t.type === "Video").length;
@@ -24,7 +24,7 @@ export default function Stats() {
         Friendship Analytics
       </h1>
 
-      {/* 📊 PIE CHART */}
+      
       <div className="bg-white border rounded-2xl p-6 flex flex-col items-center">
 
         <PieChart width={320} height={320}>
@@ -47,7 +47,7 @@ export default function Stats() {
 
       </div>
 
-      {/* 📊 SUMMARY CARDS */}
+      
       <div className="grid grid-cols-3 gap-4 mt-6">
 
         <div className="bg-white border rounded-xl p-4 text-center">

@@ -1,89 +1,47 @@
+import { getStatusStyle } from "../utils/statusStyle";
+
 export default function FriendCard({ friend, onClick }) {
+  const status = friend.status?.toLowerCase().trim();
+
   return (
     <div
       onClick={onClick}
-      className="group bg-white border border-gray-200 rounded-2xl p-5 cursor-pointer hover:shadow-lg transition duration-300 mx-auto container"
+      className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md transition cursor-pointer flex flex-col items-center text-center"
     >
-
-
-      <div className="flex items-center gap-4">
-
-    
-        <img
-          src={friend.picture}
-          alt={friend.name}
-          className="w-14 h-14 rounded-full object-cover border"
-        />
-
-        <div className="flex-1">
-          <h2 className="font-semibold text-gray-900 group-hover:text-indigo-600 transition">
-            {friend.name}
-          </h2>
-          <p className="text-sm text-gray-500 truncate">
-            {friend.email}
-          </p>
-        </div>
-
-      </div>
-
-    
-      <div className="my-4 border-t border-gray-100"></div>
+     
+      <img
+        src={friend.picture}
+        alt={friend.name}
+        className="w-16 h-16 rounded-full object-cover mb-3"
+      />
 
      
-      <div className="flex justify-between items-center text-sm">
+      <h2 className="text-base font-semibold text-gray-900">
+        {friend.name}
+      </h2>
 
-        <div>
-          <p className="text-gray-500">Last Contact</p>
-          <p className="font-medium text-gray-800">
-            {friend.days_since_contact} days ago
-          </p>
-        </div>
+      <p className="text-xs text-gray-500 mt-1">
+        {friend.days_since_contact} days ago
+      </p>
 
-        
-        <div className="text-right">
-          <p className="text-gray-500">Goal</p>
-          <p className="font-medium text-gray-800">
-            {friend.goal} days
-          </p>
-        </div>
-
-      </div>
-
-     
-      <div className="flex flex-wrap gap-2 mt-4">
+      <div className="flex flex-wrap justify-center gap-1.5 mt-3">
         {friend.tags.map((tag, i) => (
           <span
             key={i}
-            className="text-xs px-3 py-1 rounded-full bg-white text-gray-600"
+            className="text-[11px] px-2.5 py-1 rounded-full bg-gray-50 text-gray-600 border border-gray-100"
           >
-            #{tag}
+            {tag}
           </span>
         ))}
       </div>
 
-     
-      <div className="mt-4 flex justify-between items-center">
-
-        <span
-          className={`text-xs px-3 py-1 rounded-full font-medium
-          ${
-            friend.status === "overdue"
-              ? "bg-red-100 text-red-600"
-              : friend.status === "almost due"
-              ? "bg-yellow-100 text-yellow-700"
-              : "bg-green-100 text-green-600"
-          }`}
-        >
-          {friend.status}
-        </span>
-
-      
-        <div className="text-gray-300 group-hover:text-indigo-500 transition">
-          ➜
-        </div>
-
-      </div>
-
+      <span
+        className={`mt-4 text-[11px] px-3 py-1 rounded-full border font-medium capitalize ${getStatusStyle(
+          status
+        )}`}
+      >
+        {friend.status}
+      </span>
     </div>
   );
 }
