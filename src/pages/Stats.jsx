@@ -18,7 +18,7 @@ export default function Stats() {
   const COLORS = ["#22c55e", "#3b82f6", "#a855f7"];
 
   return (
-    <div className="p-6">
+    <div className="p-6 mx-auto container">
 
       <h1 className="text-2xl font-bold mb-6">
         Friendship Analytics
