@@ -12,6 +12,8 @@ This project helps users to explore a simple and clean interface. It shows how t
         React Router
         JSON / REST API
         Vite / Node.js
+        React Toastify
+        pie 
 
 **Key Features**
 
