@@ -36,7 +36,7 @@ export default function FriendDetails() {
     <div className="min-h-screen bg-[#F9FAFB] py-10 px-4">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-6">
 
-        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+        <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col items-center text-center gap-2">
 
           <img
             src={friend.picture}

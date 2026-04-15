@@ -38,7 +38,7 @@ export default function Home() {
             <div
               key={f.id}
               onClick={() => navigate(`/friend/${f.id}`)}
-              className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md transition cursor-pointer shadow-card  flex flex-col items-center text-center gap-2"
+              className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md transition cursor-pointer shadow-card flex flex-col items-center text-center gap-2"
             >
               <img
                 src={f.picture}
