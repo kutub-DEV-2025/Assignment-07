@@ -24,7 +24,7 @@ export default function Timeline() {
       <h1 className="text-2xl font-bold mb-6">
         Timeline
       </h1>
-      <select name="" id="" className="p-3 border border-gray-500 mb-4 w-full lg:w-[27%]"
+      <select name="" id="" className="p-3 border border-gray-500 mb-4 rounded-sm w-full lg:w-[30%]"
             onChange={(e) => setFilter(e.target.value)}>
 
         {filters.map((item) => (
