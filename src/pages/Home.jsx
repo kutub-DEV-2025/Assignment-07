@@ -3,6 +3,7 @@ import friends from "../data/friends.json";
 import { useNavigate } from "react-router-dom";
 import Banner from "../components/Banner";
 import Loader from "../components/Loader";
+import { getStatusStyle } from "../utils/statusStyle";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -37,11 +38,11 @@ export default function Home() {
             <div
               key={f.id}
               onClick={() => navigate(`/friend/${f.id}`)}
-              className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md transition cursor-pointer"
+              className="bg-white border border-gray-100 rounded-2xl p-5 hover:shadow-md transition cursor-pointer shadow-card  flex flex-col items-center text-center gap-2"
             >
               <img
                 src={f.picture}
-                className="w-14 h-14 rounded-full object-cover mb-3"
+                className="w-14 h-14 rounded-full object-cover mb-3 "
               />
 
               <h2 className="font-semibold text-gray-900">
@@ -52,7 +53,10 @@ export default function Home() {
                 {f.days_since_contact} days ago
               </p>
 
-              <span className="text-xs mt-3 inline-block px-3 py-1 bg-gray-100 rounded-full">
+              <span 
+        className={`mt-4 text-[11px] px-3 py-1 rounded-full border font-medium capitalize ${getStatusStyle(
+          f.status?.toLocaleLowerCase().trim()
+        )}`}>
                 {f.status}
               </span>
             </div>

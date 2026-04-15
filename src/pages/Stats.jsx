@@ -29,6 +29,7 @@ export default function Stats() {
 
         <PieChart width={320} height={320}>
           <Pie
+           innerRadius={80}
             data={data}
             cx="50%"
             cy="50%"

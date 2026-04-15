@@ -24,24 +24,19 @@ export default function Timeline() {
       <h1 className="text-2xl font-bold mb-6">
         Timeline
       </h1>
+      <select name="" id="" className="p-3 border border-gray-500 mb-4 w-full lg:w-[27%]"
+            onChange={(e) => setFilter(e.target.value)}>
 
-      
-      <div className="flex gap-3 mb-8">
         {filters.map((item) => (
-          <button
-            key={item}
-            onClick={() => setFilter(item)}
-            className={`px-4 py-2 rounded-full text-sm border transition
-              ${
-                filter === item
-                  ? "bg-black text-white"
-                  : "bg-white text-gray-600 hover:bg-gray-100"
-              }`}
+          <option
+            value={item}
           >
             {item}
-          </button>
+          </option>
         ))}
-      </div>
+      </select>
+      
+      
 
       
       <div className="space-y-3">
